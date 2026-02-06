@@ -8,7 +8,7 @@ All ZMK repos live under `~/code/zmk/`. See `~/code/zmk/shared/CLAUDE.md` for sh
 
 | File | Purpose |
 |---|---|
-| `config/piantor_pro_bt.keymap` | Keymap with all 7 layers, combos, ZMK Studio physical layout |
+| `config/piantor_pro_bt.keymap` | Keymap with 5 layers, combos, ZMK Studio physical layout |
 | `config/west.yml` | West manifest — pulls zmk-shared + upstream ZMK **v0.3** |
 | `build.yaml` | Build matrix: 3 keyboards x 2 halves + settings_reset variants |
 | `boards/arm/piantor_pro_bt/` | Custom board definition (Piantor Pro BT) |
@@ -29,9 +29,7 @@ All ZMK repos live under `~/code/zmk/`. See `~/code/zmk/shared/CLAUDE.md` for sh
 
 ## Layers Used
 
-Uses all 7 shared layers: BASE (0), DEVLEFT (1), DEVRIGHT (2), NPAD (3), SYSTEM (4), MOUSE (5), NAV (6).
-
-Display names are intentionally swapped: DEVLEFT shows "DEV RIGHT" and DEVRIGHT shows "DEV LEFT" (indicating which hand is active).
+Uses all 5 shared layers: BASE (0), DEVLEFT (1), NPAD (2), SYSTEM (3), NAV (4).
 
 ## Piantor-Specific Features
 
@@ -39,8 +37,6 @@ Display names are intentionally swapped: DEVLEFT shows "DEV RIGHT" and DEVRIGHT 
 - Custom nice!view display shield with widgets (`boards/shields/nice_view_disp/`)
 - `studio-rpc-usb-uart` snippet in all builds for ZMK Studio
 - Settings reset firmware variants for recovering from bad configs
-- `&ltl MOUSE W` on BASE — hold W for MOUSE layer
-
 ## Guardrails
 
 - **Must use ZMK v0.3** — `west.yml` pins `v0.3`, not `main`. Changing to `main` may break ZMK Studio support.

@@ -18,15 +18,11 @@ All boards are defined in `boards/` with custom pin mappings and configurations.
 
 | # | Layer | Notes |
 |---|---|---|
-| 0 | BASE | QWERTY + home row mods + 8 combos + MOUSE on W hold |
-| 1 | DEVLEFT | Programming symbols (left hand) — display shows "DEV RIGHT" |
-| 2 | DEVRIGHT | Programming symbols (right hand) — display shows "DEV LEFT" |
-| 3 | NPAD | Numpad (right) + media/nav (left) |
-| 4 | SYSTEM | Bluetooth, RGB controls, bootloader, media |
-| 5 | MOUSE | Mouse movement, scrolling, clicks |
-| 6 | NAV | Arrow keys + sticky modifiers |
-
-Uses all 7 shared layers. Display names are reversed for DEVLEFT/DEVRIGHT (shows which hand is active, not which layer name).
+| 0 | BASE | QWERTY + home row mods + 8 combos |
+| 1 | DEVLEFT | Programming symbols (left hand) |
+| 2 | NPAD | Number pad (right) + nav (left) |
+| 3 | SYSTEM | Bluetooth, RGB controls, bootloader, media |
+| 4 | NAV | Arrow keys + F1-F12 + sticky modifiers |
 
 ## Notable
 
