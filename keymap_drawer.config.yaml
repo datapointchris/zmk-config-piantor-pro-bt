@@ -34,7 +34,7 @@ draw_config:
   key_w: 100
   key_h: 100
   split_gap: 30
-  combo_w: 40
+  combo_w: 60
   combo_h: 36
   
   # Font sizes
@@ -48,12 +48,15 @@ draw_config:
   glyph_hold_size: 14
   glyph_shifted_size: 14
   shrink_wide_legends: 0
+  small_pad: 12
 
   svg_extra_style: |
     rect.key { fill: #f6f8fa; stroke: #c9cccf; stroke-width: 1;}
-    rect.held, rect.combo.held { fill: #fdd;}
+    rect.held, rect.combo.held { fill: #d4edda;}
     rect.ghost, rect.combo.ghost { fill: #ddd; stroke-dasharray: none; stroke-width: 1;}
     rect.thumb, rect.combo.thumb { fill: #303030; stroke-width: 0;}
     svg.keymap { background-color: #303030;}
     text.label { stroke: none; fill: #e0f0f0;}
     path.combo { stroke-width: 3;}
+    text.layer-activator { stroke: #d4edda; stroke-width: 12; stroke-linejoin: round; paint-order: stroke; text-decoration: none;}
+    .combopos-9 rect.combo { fill: #d4edda;}
