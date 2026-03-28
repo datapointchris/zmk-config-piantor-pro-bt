@@ -1,18 +1,14 @@
 # zmk-config-piantor
 
-ZMK firmware configuration for the Piantor Pro BT and related 42-key split keyboards.
+ZMK firmware configuration for the Piantor Pro BT 42-key split keyboard.
 
 ## Hardware
 
-This repo builds firmware for 3 keyboards:
-
 | Keyboard | Board | Display |
 |---|---|---|
-| **Piantor Pro BT** (primary) | Custom board def | nice!view |
-| Corne Choc Pro | Custom board def | nice!view |
-| Sofle Choc Pro | Custom board def | nice!view (custom shield) |
+| **Piantor Pro BT** | Custom board def (`boards/arm/piantor_pro_bt/`) | nice!view (custom shield) |
 
-All boards are defined in `boards/` with custom pin mappings and configurations.
+The Piantor Pro BT has an onboard nRF52840 (no socketed Nice Nano), so it requires a custom board definition with its own pin mappings and peripheral configuration.
 
 ## Layers
 
@@ -28,9 +24,9 @@ All boards are defined in `boards/` with custom pin mappings and configurations.
 
 - **ZMK v0.3** pinned (not `main`) for ZMK Studio compatibility
 - **ZMK Studio** enabled for all builds (`-DCONFIG_ZMK_STUDIO=y`)
-- **Custom board definitions** in `boards/arm/` for all 3 keyboards
+- **Custom board definition** in `boards/arm/piantor_pro_bt/`
 - **Custom nice!view shield** in `boards/shields/nice_view_disp/` with status display widgets
-- **Settings reset** firmware variants for all boards
+- **Settings reset** firmware variants included
 - RGB underglow support on SYSTEM layer
 - Makefile `align`/`draw` targets only process the Piantor keymap
 
@@ -42,7 +38,7 @@ make sync     # Align + draw + build
 make help     # Show all targets
 ```
 
-Build outputs include `.uf2` files for all 3 keyboards (left + right + settings_reset for each).
+Build outputs include `.uf2` files for left + right halves (macOS + Linux variants) and settings_reset.
 
 ## Ecosystem
 
