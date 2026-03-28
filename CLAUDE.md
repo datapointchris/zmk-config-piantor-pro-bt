@@ -8,7 +8,7 @@ All ZMK repos live under `~/code/zmk/`. See `~/code/zmk/shared/CLAUDE.md` for sh
 
 | File | Purpose |
 |---|---|
-| `config/piantor_pro_bt.keymap` | Keymap with 5 layers, combos, ZMK Studio physical layout |
+| `config/piantor_pro_bt.keymap` | Keymap with 9 layers, combos, conditional layers, ZMK Studio physical layout |
 | `config/west.yml` | West manifest — pulls zmk-shared + upstream ZMK **v0.3** |
 | `build.yaml` | Build matrix: Piantor Pro BT left/right + settings_reset variants |
 | `boards/arm/piantor_pro_bt/` | Custom board definition (onboard nRF52840, pin mappings, peripherals) |
@@ -20,13 +20,14 @@ All ZMK repos live under `~/code/zmk/`. See `~/code/zmk/shared/CLAUDE.md` for sh
 ## Keyboard Details
 
 - **42 keys**: same position numbering as Corne42 (0-35 keys, 36-41 thumbs)
-- **ZMK source**: `zmkfirmware/zmk@v0.3` (pinned version, NOT `main`)
+- **ZMK source**: `zmkfirmware/zmk@v0.3` (pinned for build compatibility, NOT `main`)
 - **ZMK Studio**: enabled via cmake arg `-DCONFIG_ZMK_STUDIO=y`
 - **Physical layout**: `zmk,physical-layout = &default_layout` chosen in keymap
+- **Single firmware per half** — runtime OS switching, no separate macOS/Linux builds
 
-## Layers Used
+## Layers
 
-Uses all 5 shared layers: BASE (0), DEVLEFT (1), NPAD (2), SYSTEM (3), NAV (4).
+Same 9-layer architecture as Corne42. See `~/code/zmk/corne42/CLAUDE.md` for layer table.
 
 ## Piantor-Specific Features
 
@@ -34,10 +35,13 @@ Uses all 5 shared layers: BASE (0), DEVLEFT (1), NPAD (2), SYSTEM (3), NAV (4).
 - Custom nice!view display shield with widgets (`boards/shields/nice_view_disp/`)
 - `studio-rpc-usb-uart` snippet in all builds for ZMK Studio
 - Settings reset firmware variants for recovering from bad configs
+
 ## Guardrails
 
-- **Must use ZMK v0.3** — `west.yml` pins `v0.3`, not `main`. Changing to `main` may break ZMK Studio support.
+- **Must use ZMK v0.3** — `west.yml` pins `v0.3`, not `main`. Pinned due to build errors on main, not for ZMK Studio.
 - Board definitions in `boards/` are custom — don't confuse with upstream ZMK board defs
 - The `nice_view_disp` shield is NOT the standard nice!view shield — it's a custom implementation with status widgets
 - Makefile `align`/`draw` only target `piantor_pro_bt.keymap`
 - No standalone `.conf` files in `config/` — configuration lives in board defconfigs under `boards/`
+- Combos must include `OS_MAC_LAYER` in their `layers` property or they won't fire when macOS mode is active
+- Shift uses `hmls`/`hmrs` (faster timing) instead of `hml`/`hmr`
