@@ -3,22 +3,12 @@ include:
   - board: piantor_pro_bt_left
     shield: nice_view
     snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DDTS_EXTRA_CPPFLAGS=-DOS_MACOS
-    artifact-name: piantor_pro_bt_left_macos
-  - board: piantor_pro_bt_right
-    shield: nice_view
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DDTS_EXTRA_CPPFLAGS=-DOS_MACOS
-    artifact-name: piantor_pro_bt_right_macos
-  - board: piantor_pro_bt_left
-    shield: nice_view
-    snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: piantor_pro_bt_left_linux
+    artifact-name: piantor_pro_bt_left
   - board: piantor_pro_bt_right
     shield: nice_view
     snippet: studio-rpc-usb-uart
-    artifact-name: piantor_pro_bt_right_linux
+    artifact-name: piantor_pro_bt_right
   - board: piantor_pro_bt_left
     shield: settings_reset
     snippet: studio-rpc-usb-uart
