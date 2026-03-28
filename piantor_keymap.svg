@@ -1454,6 +1454,7 @@ text.layer-activator { stroke: #d4edda; stroke-width: 12; stroke-linejoin: round
 </g>
 <g transform="translate(1350, 288)" class="key keypos-34">
 <rect rx="6" ry="6" x="-48" y="-48" width="96" height="96" class="key"/>
+<text x="0" y="0" class="key tap">SHIFT</text>
 </g>
 <g transform="translate(1450, 288)" class="key keypos-35">
 <rect rx="6" ry="6" x="-48" y="-48" width="96" height="96" class="key"/>
