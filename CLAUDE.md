@@ -38,6 +38,7 @@ Same 9-layer architecture as Corne42. See `~/code/zmk/corne42/CLAUDE.md` for lay
 
 ## Guardrails
 
+- **Rebuild firmware after every keymap change** — run `make sync` (align + draw + build) before committing. Source changes without a build are useless; the UF2 file is what gets flashed.
 - **Must use ZMK v0.3** — `west.yml` pins `v0.3`, not `main`. Pinned due to build errors on main, not for ZMK Studio.
 - Board definitions in `boards/` are custom — don't confuse with upstream ZMK board defs
 - The `nice_view_disp` shield is NOT the standard nice!view shield — it's a custom implementation with status widgets
