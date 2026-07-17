@@ -5,7 +5,7 @@ ZMK firmware configuration for the Piantor Pro BT 42-key split keyboard.
 ## Hardware
 
 | Keyboard | Board | Display |
-|---|---|---|
+| --- | --- | --- |
 | **Piantor Pro BT** | Custom board def (`boards/arm/piantor_pro_bt/`) | nice!view (custom shield) |
 
 The Piantor Pro BT has an onboard nRF52840 (no socketed Nice Nano), so it requires a custom board definition with its own pin mappings and peripheral configuration.
@@ -13,7 +13,7 @@ The Piantor Pro BT has an onboard nRF52840 (no socketed Nice Nano), so it requir
 ## Layers
 
 | # | Layer | Notes |
-|---|---|---|
+| --- | --- | --- |
 | 0 | BASE | QWERTY + home row mods + 8 combos |
 | 1 | DEVLEFT | Programming symbols (left hand) |
 | 2 | NPAD | Number pad (right) + nav (left) |

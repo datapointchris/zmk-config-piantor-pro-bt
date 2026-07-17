@@ -1,0 +1,3 @@
+[codespell]
+# SHFT is a ZMK keycode label, not a misspelling of SHIFT
+ignore-words-list = shft

@@ -7,7 +7,7 @@ All ZMK repos live under `~/code/zmk/`. See `~/code/zmk/shared/CLAUDE.md` for sh
 ## Key Files
 
 | File | Purpose |
-|---|---|
+| --- | --- |
 | `config/piantor_pro_bt.keymap` | Keymap with 9 layers, combos, conditional layers, ZMK Studio physical layout |
 | `config/west.yml` | West manifest — pulls zmk-shared + upstream ZMK **v0.3** |
 | `build.yaml` | Build matrix: Piantor Pro BT left/right + settings_reset variants |
