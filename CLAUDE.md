@@ -13,7 +13,7 @@ All ZMK repos live under `~/code/zmk/`. See `~/code/zmk/shared/CLAUDE.md` for sh
 | `build.yaml` | Build matrix: Piantor Pro BT left/right + settings_reset variants |
 | `config/boards/arm/piantor_pro_bt/` | Custom board definition (onboard nRF52840, pin mappings, peripherals) |
 | `config/boards/shields/nice_view_disp/` | Custom nice!view shield with status widgets |
-| `Makefile` | align, draw, build, sync, clean |
+| `Makefile` | Standard targets — see `~/code/zmk/shared/CLAUDE.md` |
 | `keymap_drawer.config.yaml` | Keymap-drawer config for this keyboard |
 | `keymap_align.toml` | Keymap-align config |
 
