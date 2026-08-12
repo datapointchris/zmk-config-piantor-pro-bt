@@ -44,4 +44,4 @@ See `~/code/zmk/shared/CLAUDE.md` guardrails for the universal build-before-comm
 - Board definitions in `config/boards/` are custom — don't confuse with upstream ZMK board defs
 - The `nice_view_disp` shield is NOT the standard nice!view shield — it's a custom implementation with status widgets
 - Makefile `align`/`draw` only target `piantor_pro_bt.keymap`
-- No standalone `.conf` files in `config/` — configuration lives in board defconfigs under `config/boards/`
+- `config/piantor_pro_bt.conf` applies to both halves; there are no side-specific `.conf` files, and the board-level defaults live in defconfigs under `config/boards/`
