@@ -124,15 +124,26 @@ path.combo {
 }
 /* End Tabler Icons Cleanup */
 
-rect.key { fill: #f6f8fa; stroke: #c9cccf; stroke-width: 1;}
-rect.held, rect.combo.held { fill: #d4edda;}
-rect.ghost, rect.combo.ghost { fill: #ddd; stroke-dasharray: none; stroke-width: 1;}
-rect.thumb, rect.combo.thumb { fill: #303030; stroke-width: 0;}
-svg.keymap { background-color: #303030;}
-text.label { stroke: none; fill: #e0f0f0;}
+svg.keymap { fill: #d1d6db; }
+rect.key { fill: #3f4750; }
+rect.key, rect.combo { stroke: #60666c; }
+rect.combo, rect.combo-separate { fill: #1f3d7a; }
+rect.held, rect.combo.held { fill: #854747; }
+text.label, text.footer { stroke: black; }
+text.trans { fill: #7e8184; }
+path.combo { stroke: #7f7f7f; }
+
+/* Green stays the accent for held keys, the ZMK Studio combo and the layer
+   activator, but at dark-mode brightness. The pale #d4edda it replaces was
+   chosen against white keys; under light legends it is light on light. */
+rect.held, rect.combo.held { fill: #3f5f4a;}
+.combopos-9 rect.combo { fill: #3f5f4a;}
+text.layer-activator { stroke: #3f5f4a; stroke-width: 12; stroke-linejoin: round; paint-order: stroke; text-decoration: none;}
+/* SVG has no background, so this reaches a browser and nothing else. In a
+   terminal the drawing composites onto whatever is behind it, which is
+   already dark — that is why the keys were the only thing to fix. */
+svg.keymap { background-color: #24272e;}
 path.combo { stroke-width: 3;}
-text.layer-activator { stroke: #d4edda; stroke-width: 12; stroke-linejoin: round; paint-order: stroke; text-decoration: none;}
-.combopos-9 rect.combo { fill: #d4edda;}
 </style>
 <g transform="translate(20, 0)" class="layer-BASE">
 <text x="0" y="10" class="label" id="BASE">BASE:</text>
