@@ -13,7 +13,6 @@ All ZMK repos live under `~/code/zmk/`. See `~/code/zmk/shared/CLAUDE.md` for sh
 | `build.yaml` | Build matrix: Piantor Pro BT left/right + settings_reset variants |
 | `config/boards/arm/piantor_pro_bt/` | Custom board definition (onboard nRF52840, pin mappings, peripherals) |
 | `config/boards/shields/nice_view_disp/` | Custom nice!view shield with status widgets |
-| `Makefile` | Standard targets — see `~/code/zmk/shared/CLAUDE.md` |
 | `keymap_drawer.config.yaml` | Keymap-drawer config for this keyboard |
 | `keymap_align.toml` | Keymap-align config |
 
@@ -43,5 +42,5 @@ See `~/code/zmk/shared/CLAUDE.md` guardrails for the universal build-before-comm
 - **Must use ZMK v0.3** — `west.yml` pins `v0.3`, not `main`. Pinned due to build errors on main, not for ZMK Studio.
 - Board definitions in `config/boards/` are custom — don't confuse with upstream ZMK board defs
 - The `nice_view_disp` shield is NOT the standard nice!view shield — it's a custom implementation with status widgets
-- Makefile `align`/`draw` only target `piantor_pro_bt.keymap`
+- `config/piantor_pro_bt.keymap` is the stem, so the drawer files are `piantor_pro_bt_keymap.{yaml,svg}`
 - `config/piantor_pro_bt.conf` applies to both halves; there are no side-specific `.conf` files, and the board-level defaults live in defconfigs under `config/boards/`

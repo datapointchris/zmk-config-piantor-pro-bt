@@ -28,14 +28,15 @@ The Piantor Pro BT has an onboard nRF52840 (no socketed Nice Nano), so it requir
 - **Custom nice!view shield** in `config/boards/shields/nice_view_disp/` with status display widgets
 - **Settings reset** firmware variants included
 - RGB underglow support on SYSTEM layer
-- Makefile `align`/`draw` targets only process the Piantor keymap
+- `config/piantor_pro_bt.keymap` is the stem every derived path follows
 
 ## Build
 
 ```sh
-make build    # Build all firmware variants via zmk-build
-make sync     # Align + draw + build
-make help     # Show all targets
+zmk check     # What is missing or has drifted
+zmk sync      # Align + draw + build every variant
+zmk flash     # Pick halves with fzf, then write each
+zmk --help    # Show all commands
 ```
 
 Build outputs include `.uf2` files for left + right halves (macOS + Linux variants) and settings_reset.

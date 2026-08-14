@@ -132,7 +132,8 @@ svg.keymap { background-color: #303030;}
 text.label { stroke: none; fill: #e0f0f0;}
 path.combo { stroke-width: 3;}
 text.layer-activator { stroke: #d4edda; stroke-width: 12; stroke-linejoin: round; paint-order: stroke; text-decoration: none;}
-.combopos-9 rect.combo { fill: #d4edda;}</style>
+.combopos-9 rect.combo { fill: #d4edda;}
+</style>
 <g transform="translate(20, 0)" class="layer-BASE">
 <text x="0" y="10" class="label" id="BASE">BASE:</text>
 <g transform="translate(0, 20)">
