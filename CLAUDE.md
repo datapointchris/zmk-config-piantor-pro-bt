@@ -26,7 +26,7 @@ All ZMK repos live under `~/code/zmk/`. See `~/code/zmk/shared/CLAUDE.md` for sh
 
 ## Layers
 
-Same 9-layer architecture as Corne42. See `~/code/zmk/corne42/CLAUDE.md` for layer table.
+Nine layers, BASE 0 through WM_MAC_LAYER 8. **Corne42's indices are different and its table does not apply here** — it declares eleven, and every layer above index 1 sits at a different number. Count the `#define` blocks in this board's own keymap, per `~/code/zmk/shared/CLAUDE.md`.
 
 ## Piantor-Specific Features
 
