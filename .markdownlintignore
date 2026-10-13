@@ -1,7 +1,7 @@
 # Vendored third-party ZMK shields — not our content to lint
 config/boards/shields/
 
-# Preventive: no release here writes a changelog. The entry stands so that one
-# arriving generated is never linted, since normalization of a generated file
-# is undone on the next release and returns as a conflict.
+# No release here writes a CHANGELOG.md. One that arrives from a generator is
+# never linted, because markdownlint --fix and the generator would rewrite each
+# other's output.
 CHANGELOG.md
