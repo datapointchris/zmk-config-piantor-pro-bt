@@ -19,8 +19,8 @@ runs. `zmk` drives that container.
 ```bash
 # from your package manager: docker, yq (mikefarah's), python3, uv, fzf, and udisks2 on Linux
 curl -fsSL https://raw.githubusercontent.com/datapointchris/zmk/main/install.sh | bash  # zmk, linked into ~/.local/bin
-uv tool install keymap-drawer                                       # `keymap`, which renders the SVG
-uv tool install git+https://github.com/datapointchris/keymap-align  # column-aligns the keymap
+uv tool install keymap-drawer                                              # `keymap`, which renders the SVG
+uv tool install --index https://pypi.ichrisbirch.com/simple/ keymap-align  # column-aligns the keymap
 ```
 
 ## Starting from scratch
