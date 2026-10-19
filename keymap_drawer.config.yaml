@@ -52,7 +52,7 @@ draw_config:
   dark_mode: true
 
   svg_extra_style: |
-    /* Green stays the accent for held keys, the ZMK Studio combo and the layer
+    /* Green stays the accent for held keys, the Colemak toggle combo and the layer
        activator, but at dark-mode brightness. The pale #d4edda it replaces was
        chosen against white keys; under light legends it is light on light. */
     rect.held, rect.combo.held { fill: #3f5f4a;}
