@@ -5,7 +5,7 @@ Read `~/code/zmk/shared/CLAUDE.md` first: it holds the shared behaviors, the `zm
 ## Keyboard Details
 
 - **42 keys**: same position numbering as Corne42 (0-35 keys, 36-41 thumbs)
-- **ZMK Studio**: enabled via cmake arg `-DCONFIG_ZMK_STUDIO=y`, with the `studio-rpc-usb-uart` snippet in every build
+- **ZMK Studio**: the left half's defconfig sets `CONFIG_ZMK_STUDIO=y`, and `build.yaml` passes `-DCONFIG_ZMK_STUDIO=y` to the left `nice_view` target only. Studio runs on the central alone; every target carries the `studio-rpc-usb-uart` snippet
 - **Physical layout**: `zmk,physical-layout = &default_layout` chosen in keymap
 - **Single firmware per half** — runtime OS switching, no separate macOS/Linux builds
 - RGB underglow controls on the SYSTEM layer (`&rgb_ug` bindings)
