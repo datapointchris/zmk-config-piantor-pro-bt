@@ -64,7 +64,7 @@ gets 60 seconds to appear. `ZMK_FLASH_TIMEOUT` changes that.
 | 1 | COLEMAK | both inner thumbs together, as a toggle | Colemak-DH letters and their home-row mods; every other key falls through to BASE |
 | 2 | DEVLEFT | holding Enter or Space on the inner and middle right thumbs | programming symbols under the left hand; the right home-row mods stay live |
 | 3 | NPAD | holding Backspace on the middle left thumb | number pad on the right, with 0 on the middle and outer right thumbs; Home, End, Page Up, Page Down and Insert on the left |
-| 4 | SYSTEM | holding the outer key of the bottom letter row, on either side | Bluetooth profiles, USB or BLE output, RGB underglow, media, Ctrl+Alt+Del, bootloader and reset, and the macOS toggle |
+| 4 | SYSTEM | holding the outer key of the bottom letter row, on either side | Bluetooth profiles, USB or BLE output, RGB underglow, media, Ctrl+Alt+Del, bootloader and reset, ZMK Studio unlock, and the macOS toggle |
 | 5 | NAV | holding Delete on the inner left thumb | arrows on the right home row, F1–F12 across the top row, plain modifiers on the left |
 | 6 | WM | holding the outer left thumb | window-manager chords: focus on the HJKL keys, move on the row above, join on the row below, workspaces on letters |
 | 7 | OS_MAC_LAYER | toggled from SYSTEM's inner right thumb | nothing; every key is transparent, and the layer being on is what marks macOS |
@@ -157,7 +157,8 @@ on Zephyr 4.1.
 The left half's defconfig turns on ZMK Studio. `build.yaml` also passes `-DCONFIG_ZMK_STUDIO=y` to
 that target. Studio runs only on the central. The right half's firmware does not include it. Every
 target carries the `studio-rpc-usb-uart` snippet, so Studio reaches the left half over USB as well
-as Bluetooth.
+as Bluetooth. Studio connects locked and refuses edits until a key unlocks it. To unlock, hold SYSTEM
+and press the left half's inner key on the bottom letter row, the key that is B on BASE.
 
 `config/piantor_pro_bt.conf` applies to both halves. There are no side-specific `.conf` files. The
 board-level defaults live in the defconfigs under `config/boards/`. The `.conf` sets deep sleep
