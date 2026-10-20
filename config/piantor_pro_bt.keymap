@@ -20,12 +20,12 @@
 // Layer indices. These must match the order of the blocks in `keymap` below.
 #define BASE 0
 #define COLEMAK 1
-#define DEVLEFT 2
-#define NPAD 3
-#define SYSTEM 4
-#define NAV 5
-#define WM 6
-#define OS_MAC_LAYER 7
+#define OS_MAC_LAYER 2
+#define DEVLEFT 3
+#define NPAD 4
+#define SYSTEM 5
+#define NAV 6
+#define WM 7
 #define WM_MAC_LAYER 8
 
 #include "shared_behaviors.dtsi"
@@ -133,6 +133,15 @@
                                                                       &trans           &trans           &trans         &trans             &trans               &trans
             >;
         };
+        OS_MAC {
+            display-name = "macOS";
+            bindings = <
+    &trans       &trans           &trans           &trans             &trans           &trans                                             &trans               &trans             &trans             &trans             &trans           &trans
+    &trans       &trans           &trans           &trans             &trans           &trans                                             &trans               &trans             &trans             &trans             &trans           &trans
+    &trans       &trans           &trans           &trans             &trans           &trans                                             &trans               &trans             &trans             &trans             &trans           &trans
+                                                                      &trans           &trans           &trans         &trans             &trans               &trans
+            >;
+        };
         DEVLEFT {
             display-name = "DEV LEFT";
             bindings = <
@@ -176,15 +185,6 @@
     &none        &kp WMK(A)       &kp WMK(S)       &kp WMK(D)         &kp WMK(F)       &none                                              &kp WMK(H)           &kp WMK(J)         &kp WMK(K)         &kp WMK(L)         &none            &kp WMK(SQT)
     &none        &kp WMK(Z)       &kp WMK(X)       &none              &kp WMK(M)       &none                                              &kp WMCK(H)          &kp WMCK(J)        &kp WMCK(K)        &kp WMCK(L)        &kp LSHIFT       &kp WMCK(G)
                                                                       &trans           &none            &none          &kp WMSK(F)        &kp LG(GRAVE)        &kp WMK(TAB)
-            >;
-        };
-        OS_MAC {
-            display-name = "macOS";
-            bindings = <
-    &trans       &trans           &trans           &trans             &trans           &trans                                             &trans               &trans             &trans             &trans             &trans           &trans
-    &trans       &trans           &trans           &trans             &trans           &trans                                             &trans               &trans             &trans             &trans             &trans           &trans
-    &trans       &trans           &trans           &trans             &trans           &trans                                             &trans               &trans             &trans             &trans             &trans           &trans
-                                                                      &trans           &trans           &trans         &trans             &trans               &trans
             >;
         };
         WM_MAC {

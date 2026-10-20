@@ -62,12 +62,12 @@ gets 60 seconds to appear. `ZMK_FLASH_TIMEOUT` changes that.
 | --- | --- | --- | --- |
 | 0 | BASE | default | QWERTY with home-row mods; Tab and Esc on the left outer column, `\` and `'` on the right; Caps Word on the outer right thumb |
 | 1 | COLEMAK | both inner thumbs together, as a toggle | Colemak-DH letters and their home-row mods; every other key falls through to BASE |
-| 2 | DEVLEFT | holding Enter or Space on the inner and middle right thumbs | programming symbols under the left hand; the right home-row mods stay live |
-| 3 | NPAD | holding Backspace on the middle left thumb | number pad on the right, with 0 on the middle and outer right thumbs; Home, End, Page Up, Page Down and Insert on the left |
-| 4 | SYSTEM | holding the outer key of the bottom letter row, on either side | Bluetooth profiles, USB or BLE output, RGB underglow, media, Ctrl+Alt+Del, bootloader and reset, ZMK Studio unlock, and the macOS toggle |
-| 5 | NAV | holding Delete on the inner left thumb | arrows on the right home row, F1–F12 across the top row, plain modifiers on the left |
-| 6 | WM | holding the outer left thumb | window-manager chords: focus on the HJKL keys, move on the row above, join on the row below, workspaces on letters |
-| 7 | OS_MAC_LAYER | toggled from SYSTEM's inner right thumb | nothing; every key is transparent, and the layer being on is what marks macOS |
+| 2 | OS_MAC_LAYER | toggled from SYSTEM's inner right thumb | nothing; every key is transparent, and the layer being on is what marks macOS |
+| 3 | DEVLEFT | holding Enter or Space on the inner and middle right thumbs | programming symbols under the left hand; the right home-row mods stay live |
+| 4 | NPAD | holding Backspace on the middle left thumb | number pad on the right, with 0 on the middle and outer right thumbs; Home, End, Page Up, Page Down and Insert on the left |
+| 5 | SYSTEM | holding the outer key of the bottom letter row, on either side | Bluetooth profiles, USB or BLE output, RGB underglow, media, Ctrl+Alt+Del, bootloader and reset, ZMK Studio unlock, and the macOS toggle |
+| 6 | NAV | holding Delete on the inner left thumb | arrows on the right home row, F1–F12 across the top row, plain modifiers on the left |
+| 7 | WM | holding the outer left thumb | window-manager chords: focus on the HJKL keys, move on the row above, join on the row below, workspaces on letters |
 | 8 | WM_MAC_LAYER | on by itself while WM and OS_MAC_LAYER are both on | WM's chords on Alt instead of Super |
 
 Home-row mods run GASC from the pinky inward: GUI, Alt, Shift, Ctrl, mirrored on the right. On the
@@ -105,7 +105,8 @@ that follows two hours idle all start on Linux again.
 
 Every combo lists `OS_MAC_LAYER` in its `layers`. A combo checks only the highest active layer, and
 with the toggle on, that layer is `OS_MAC_LAYER`. A combo added without it stops firing in macOS
-mode.
+mode. The flag sits below DEVLEFT, NPAD, SYSTEM, NAV and WM. A held layer then outranks it, so no
+combo fires while one is held, on either system.
 
 `WM_MAC_LAYER` must keep a higher number than both `WM` and `OS_MAC_LAYER`. A layer's keys win only
 over layers numbered below it.
