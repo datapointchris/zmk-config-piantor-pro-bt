@@ -21,8 +21,7 @@ parse_config:
     "&bt_3": "BT 3"
 
 draw_config:
-  # One layer per row. Two columns halve the key size, and legible keys are
-  # worth more than the scrolling a taller drawing costs.
+  # One layer per row: two columns halve the key size.
   n_columns: 1
   # Optional: Customize appearance
   key_w: 100
@@ -52,14 +51,12 @@ draw_config:
   dark_mode: true
 
   svg_extra_style: |
-    /* Green stays the accent for held keys, the Colemak toggle combo and the layer
-       activator, but at dark-mode brightness. The pale #d4edda it replaces was
-       chosen against white keys; under light legends it is light on light. */
+    /* Green marks held keys, the Colemak toggle combo (combopos-9) and the layer
+       activator. #3f5f4a is dark enough that dark mode's light legends read on it. */
     rect.held, rect.combo.held { fill: #3f5f4a;}
     .combopos-9 rect.combo { fill: #3f5f4a;}
     text.layer-activator { stroke: #3f5f4a; stroke-width: 12; stroke-linejoin: round; paint-order: stroke; text-decoration: none;}
     /* SVG has no background, so this reaches a browser and nothing else. In a
-       terminal the drawing composites onto whatever is behind it, which is
-       already dark — that is why the keys were the only thing to fix. */
+       terminal the drawing composites onto whatever is behind it. */
     svg.keymap { background-color: #24272e;}
     path.combo { stroke-width: 3;}

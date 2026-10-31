@@ -51,7 +51,7 @@ the repo root as `<artifact-name>.uf2`, which git ignores.
 file. Its prompt says to double-tap reset. On this keymap the bootloader is also a key. Hold SYSTEM
 and press the outermost home-row key on the half being flashed: the key that is Esc on the left, or
 `'` on the right. That key reboots the half it sits on, whichever hand holds SYSTEM. It exists only
-once this keymap is on the board, so a first flash uses the running firmware's own way in. Each half
+once this keymap is on the board, so a first flash double-taps reset, as the prompt says. Each half
 gets 60 seconds to appear. `ZMK_FLASH_TIMEOUT` changes that.
 
 ## Layers — a layer's number is its block's position in the keymap, not its define
@@ -180,7 +180,7 @@ zmk flash piantor_pro_bt_left piantor_pro_bt_right                              
 
 A settings-reset firmware deletes every setting its half has stored, Bluetooth bonds included, each
 time it boots. It also turns Bluetooth off, so the halves cannot pair until the keymap firmware is
-back. Its keys do nothing, so the next flash needs the half's own way into the bootloader.
+back. Its keys do nothing, so the SYSTEM bootloader key is gone and the next flash double-taps reset.
 
 SYSTEM clears bonds without a reflash. Its top-left key clears the active profile's bond, and its
 top-right key clears every profile's.
