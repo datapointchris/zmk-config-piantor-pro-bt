@@ -11,6 +11,10 @@ Read `~/code/zmk/shared/CLAUDE.md` first: it holds the shared behaviors, the `zm
 - RGB underglow controls on the SYSTEM layer (`&rgb_ug` bindings)
 - `build.yaml` also builds settings-reset firmware for recovering from a bad config
 
+## Tasks
+
+`Taskfile.yml` holds the jobs: `task build` (`zmk build`), `task generate` (`zmk align`, then `zmk draw`), `task lint` (the read-only pre-commit hooks) and `task format` (the hooks that rewrite files). `task` alone lists them.
+
 ## Layers
 
 Nine layers, BASE 0 through WM_MAC_LAYER 8. **Corne42's table does not apply here** — every layer above index 2 sits at a different number. Count the layer blocks in this board's own keymap.
