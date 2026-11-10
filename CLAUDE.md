@@ -19,6 +19,6 @@ Nine layers, BASE 0 through WM_MAC_LAYER 8. **Corne42's table does not apply her
 
 - **Must use ZMK v0.3** — `config/west.yml` pins `zmkfirmware/zmk` at `v0.3`, not `main`. Pinned due to build errors on main, not for ZMK Studio.
 - The board definition in `config/boards/arm/piantor_pro_bt/` is custom (onboard nRF52840, pin mappings, peripherals) — don't confuse it with upstream ZMK board defs
-- `config/boards/shields/nice_view_disp/` is a custom nice!view shield with status widgets, not the standard one. No `build.yaml` target selects it; every build uses the stock `nice_view`
+- `config/boards/shields/nice_view_disp/` is a renamed copy of an older ZMK nice!view shield, ZMK's widget code included, with an option to rotate the screen 180 degrees. No `build.yaml` target selects it; every build uses the stock `nice_view`
 - `config/piantor_pro_bt.keymap` is the stem, so the drawer files are `piantor_pro_bt_keymap.{yaml,svg}`
 - `config/piantor_pro_bt.conf` applies to both halves; there are no side-specific `.conf` files, and the board-level defaults live in defconfigs under `config/boards/`
