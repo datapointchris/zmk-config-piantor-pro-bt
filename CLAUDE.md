@@ -11,6 +11,10 @@ Read `~/code/zmk/shared/CLAUDE.md` first: it holds the shared behaviors, the `zm
 - RGB underglow controls on the SYSTEM layer (`&rgb_ug` bindings)
 - `build.yaml` also builds settings-reset firmware for recovering from a bad config
 
+## Tasks
+
+`Taskfile.yml` holds the jobs: `task build` (`zmk build`), `task generate` (`zmk align`, then `zmk draw`), `task lint` (the read-only pre-commit hooks) and `task format` (the hooks that rewrite files). `task` alone lists them.
+
 ## Layers
 
 Nine layers, BASE 0 through WM_MAC_LAYER 8. **Corne42's table does not apply here** — every layer above index 2 sits at a different number. Count the layer blocks in this board's own keymap.
@@ -19,6 +23,6 @@ Nine layers, BASE 0 through WM_MAC_LAYER 8. **Corne42's table does not apply her
 
 - **Must use ZMK v0.3** — `config/west.yml` pins `zmkfirmware/zmk` at `v0.3`, not `main`. Pinned due to build errors on main, not for ZMK Studio.
 - The board definition in `config/boards/arm/piantor_pro_bt/` is custom (onboard nRF52840, pin mappings, peripherals) — don't confuse it with upstream ZMK board defs
-- `config/boards/shields/nice_view_disp/` is a custom nice!view shield with status widgets, not the standard one. No `build.yaml` target selects it; every build uses the stock `nice_view`
+- `config/boards/shields/nice_view_disp/` is a renamed copy of an older ZMK nice!view shield, ZMK's widget code included, with an option to rotate the screen 180 degrees. No `build.yaml` target selects it; every build uses the stock `nice_view`
 - `config/piantor_pro_bt.keymap` is the stem, so the drawer files are `piantor_pro_bt_keymap.{yaml,svg}`
 - `config/piantor_pro_bt.conf` applies to both halves; there are no side-specific `.conf` files, and the board-level defaults live in defconfigs under `config/boards/`
