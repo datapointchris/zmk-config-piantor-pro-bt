@@ -1,0 +1,55 @@
+---
+# https://taskfile.dev
+# The firmware jobs call the `zmk` CLI, which the README's Install section
+# installs. lint and format run this repo's pre-commit hooks over every file.
+version: '3'
+
+tasks:
+  default:
+    desc: List the tasks
+    silent: true
+    cmds:
+      - task --list
+
+  build:
+    desc: Build a firmware file for every build.yaml target, into the repo root
+    cmds:
+      - zmk build
+
+  generate:
+    desc: Column-align the keymap, then redraw piantor_pro_bt_keymap.svg from its YAML
+    cmds:
+      - zmk align
+      - zmk draw
+
+  lint:
+    desc: Run the read-only pre-commit hooks over every file
+    cmds:
+      - for:
+          - check-yaml
+          - check-toml
+          - check-json
+          - check-json5
+          - check-executables-have-shebangs
+          - check-shebang-scripts-are-executable
+          - check-added-large-files
+          - check-merge-conflict
+          - check-case-conflict
+          - detect-private-key
+          - shellcheck
+          - codespell
+          - refcheck
+          - jactionlint
+          - bats
+        cmd: pre-commit run --all-files {{.ITEM}}
+
+  format:
+    desc: Run the pre-commit hooks that rewrite files, over every file
+    cmds:
+      - for:
+          - end-of-file-fixer
+          - trailing-whitespace
+          - mixed-line-ending
+          - markdownlint
+          - shfmt
+        cmd: pre-commit run --all-files {{.ITEM}}

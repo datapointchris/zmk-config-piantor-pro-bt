@@ -1,4 +1,5 @@
-# Vendored third-party ZMK shields — not our content to lint
+# nice_view_disp is a renamed copy of an older ZMK nice!view shield, and its
+# README.md is ZMK's own text, so it keeps ZMK's formatting rather than ours
 config/boards/shields/
 
 # No release here writes a CHANGELOG.md. One that arrives from a generator is
