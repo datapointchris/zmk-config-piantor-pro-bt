@@ -167,9 +167,7 @@ after two hours idle and raises Bluetooth transmit power to +8 dBm for the link 
 It warns against `CONFIG_ZMK_BLE_EXPERIMENTAL_SEC`, which switches pairing to a passkey and hangs on
 Linux.
 
-`config/boards/shields/nice_view_disp/` is a renamed copy of an older ZMK nice!view shield, with an
-option to rotate the screen 180 degrees. No `build.yaml` target selects it. Every target builds with
-ZMK's stock `nice_view`.
+Every keymap target builds with ZMK's stock `nice_view` shield.
 
 ## Settings reset — a firmware that erases a half, for when the halves stop finding each other
 
