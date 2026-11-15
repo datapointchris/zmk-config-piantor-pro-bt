@@ -5,7 +5,7 @@ Read `~/code/zmk/shared/CLAUDE.md` first: it holds the shared behaviors, the `zm
 ## Keyboard Details
 
 - **42 keys**: same position numbering as Corne42 (0-35 keys, 36-41 thumbs)
-- **ZMK Studio**: the left half's defconfig sets `CONFIG_ZMK_STUDIO=y`, and `build.yaml` passes `-DCONFIG_ZMK_STUDIO=y` to the left `nice_view` target only. Studio runs on the central alone; every target carries the `studio-rpc-usb-uart` snippet
+- **ZMK Studio, the ZMK pin and the `.conf`**: README § "The board" says how each is set and why
 - **Physical layout**: `zmk,physical-layout = &default_layout` chosen in keymap
 - **Single firmware per half** — runtime OS switching, no separate macOS/Linux builds
 - RGB underglow controls on the SYSTEM layer (`&rgb_ug` bindings)
@@ -21,7 +21,6 @@ Nine layers, BASE 0 through WM_MAC_LAYER 8. **Corne42's table does not apply her
 
 ## Guardrails
 
-- **Must use ZMK v0.3** — `config/west.yml` pins `zmkfirmware/zmk` at `v0.3`, not `main`. Pinned due to build errors on main, not for ZMK Studio.
+- **Must use ZMK v0.3** — `config/west.yml` pins `zmkfirmware/zmk` at `v0.3`, not `main`. README § "The board" gives the reason
 - The board definition in `config/boards/arm/piantor_pro_bt/` is custom (onboard nRF52840, pin mappings, peripherals) — don't confuse it with upstream ZMK board defs
 - `config/piantor_pro_bt.keymap` is the stem, so the drawer files are `piantor_pro_bt_keymap.{yaml,svg}`
-- `config/piantor_pro_bt.conf` applies to both halves; there are no side-specific `.conf` files, and the board-level defaults live in defconfigs under `config/boards/`
