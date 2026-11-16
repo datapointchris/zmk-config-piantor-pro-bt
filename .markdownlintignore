@@ -1,7 +1,3 @@
-# nice_view_disp is a renamed copy of an older ZMK nice!view shield, and its
-# README.md is ZMK's own text, so it keeps ZMK's formatting rather than ours
-config/boards/shields/
-
 # No release here writes a CHANGELOG.md. One that arrives from a generator is
 # never linted, because markdownlint --fix and the generator would rewrite each
 # other's output.

@@ -5,7 +5,7 @@ Read `~/code/zmk/shared/CLAUDE.md` first: it holds the shared behaviors, the `zm
 ## Keyboard Details
 
 - **42 keys**: same position numbering as Corne42 (0-35 keys, 36-41 thumbs)
-- **ZMK Studio**: the left half's defconfig sets `CONFIG_ZMK_STUDIO=y`, and `build.yaml` passes `-DCONFIG_ZMK_STUDIO=y` to the left `nice_view` target only. Studio runs on the central alone; every target carries the `studio-rpc-usb-uart` snippet
+- **ZMK Studio, the ZMK pin and the `.conf`**: README § "The board" says how each is set and why
 - **Physical layout**: `zmk,physical-layout = &default_layout` chosen in keymap
 - **Single firmware per half** — runtime OS switching, no separate macOS/Linux builds
 - RGB underglow controls on the SYSTEM layer (`&rgb_ug` bindings)
@@ -17,12 +17,10 @@ Read `~/code/zmk/shared/CLAUDE.md` first: it holds the shared behaviors, the `zm
 
 ## Layers
 
-Nine layers, BASE 0 through WM_MAC_LAYER 8. **Corne42's table does not apply here** — every layer above index 2 sits at a different number. Count the layer blocks in this board's own keymap.
+The `#define`s at the top of `config/piantor_pro_bt.keymap` name every layer and its number. **Corne42's table does not apply here** — every layer above index 2 sits at a different number. Count the layer blocks in this board's own keymap.
 
 ## Guardrails
 
-- **Must use ZMK v0.3** — `config/west.yml` pins `zmkfirmware/zmk` at `v0.3`, not `main`. Pinned due to build errors on main, not for ZMK Studio.
+- **Must use ZMK v0.3** — `config/west.yml` pins `zmkfirmware/zmk` at `v0.3`, not `main`. README § "The board" gives the reason
 - The board definition in `config/boards/arm/piantor_pro_bt/` is custom (onboard nRF52840, pin mappings, peripherals) — don't confuse it with upstream ZMK board defs
-- `config/boards/shields/nice_view_disp/` is a renamed copy of an older ZMK nice!view shield, ZMK's widget code included, with an option to rotate the screen 180 degrees. No `build.yaml` target selects it; every build uses the stock `nice_view`
 - `config/piantor_pro_bt.keymap` is the stem, so the drawer files are `piantor_pro_bt_keymap.{yaml,svg}`
-- `config/piantor_pro_bt.conf` applies to both halves; there are no side-specific `.conf` files, and the board-level defaults live in defconfigs under `config/boards/`

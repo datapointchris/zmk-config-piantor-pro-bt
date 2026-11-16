@@ -58,17 +58,9 @@ gets 60 seconds to appear. `ZMK_FLASH_TIMEOUT` changes that.
 
 ![The Piantor Pro BT keymap, every layer](piantor_pro_bt_keymap.svg)
 
-| # | Layer | Reached by | Holds |
-| --- | --- | --- | --- |
-| 0 | BASE | default | QWERTY with home-row mods; Tab and Esc on the left outer column, `\` and `'` on the right; Caps Word on the outer right thumb |
-| 1 | COLEMAK | both inner thumbs together, as a toggle | Colemak-DH letters and their home-row mods; every other key falls through to BASE |
-| 2 | OS_MAC_LAYER | toggled from SYSTEM's inner right thumb | nothing; every key is transparent, and the layer being on is what marks macOS |
-| 3 | DEVLEFT | holding Enter or Space on the inner and middle right thumbs | programming symbols under the left hand; the right home-row mods stay live |
-| 4 | NPAD | holding Backspace on the middle left thumb | number pad on the right, with 0 on the middle and outer right thumbs; Home, End, Page Up, Page Down and Insert on the left |
-| 5 | SYSTEM | holding the outer key of the bottom letter row, on either side | Bluetooth profiles, USB or BLE output, RGB underglow, media, Ctrl+Alt+Del, bootloader and reset, ZMK Studio unlock, and the macOS toggle |
-| 6 | NAV | holding Delete on the inner left thumb | arrows on the right home row, F1–F12 across the top row, plain modifiers on the left |
-| 7 | WM | holding the outer left thumb | window-manager chords: focus on the HJKL keys, move on the row above, join on the row below, workspaces on letters |
-| 8 | WM_MAC_LAYER | on by itself while WM and OS_MAC_LAYER are both on | WM's chords on Alt instead of Super |
+The drawing shows every layer and the key that reaches it. The keymap is the source. The `#define`s
+at the top of `config/piantor_pro_bt.keymap` name each layer, and each layer's block in `keymap`
+holds its keys. § "Building" says what `zmk check` compares between the keymap and the drawing.
 
 Home-row mods run GASC from the pinky inward: GUI, Alt, Shift, Ctrl, mirrored on the right. On the
 letter layers, Shift uses a faster variant than the other three.
@@ -78,9 +70,9 @@ disconnects that profile. On SYSTEM, each outer bottom-row key is a reset. Holdi
 pressing the other reboots the half pressed second.
 
 The combos fire on BASE and COLEMAK alike. They are bound to positions, so they stay on the same
-physical keys under either layout. Adjacent home-row pairs type brackets: S+D `[`, D+F `(`, S+F
-`{`, then J+K `)`, K+L `]`, J+L `}`. A+S types `_`, L+; types `-`, and Q+W types `~`. Each combo
-needs 150 ms of idle before it, so a pair pressed mid-word types both letters.
+physical keys under either layout. The `combos` node in the keymap lists each pair and what it
+types. Each combo's `require-prior-idle-ms` is the idle it needs before it, so a pair pressed
+mid-word types both letters.
 
 Keys are numbered row by row across both halves: 0 to 35 for the three letter rows, 36 to 41 for
 the thumbs. `KEYS_L`, `KEYS_R`, `THUMBS_L` and `THUMBS_R` at the top of the keymap list them per
@@ -167,9 +159,7 @@ after two hours idle and raises Bluetooth transmit power to +8 dBm for the link 
 It warns against `CONFIG_ZMK_BLE_EXPERIMENTAL_SEC`, which switches pairing to a passkey and hangs on
 Linux.
 
-`config/boards/shields/nice_view_disp/` is a renamed copy of an older ZMK nice!view shield, with an
-option to rotate the screen 180 degrees. No `build.yaml` target selects it. Every target builds with
-ZMK's stock `nice_view`.
+Every keymap target builds with ZMK's stock `nice_view` shield.
 
 ## Settings reset — a firmware that erases a half, for when the halves stop finding each other
 
